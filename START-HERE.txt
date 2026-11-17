@@ -1,0 +1,14 @@
+Web — complete source export
+Source commit: e6bdc69bfb64039c39b2d711b75543bbeaff8a20
+
+All 134 tracked repository files are included under Web/.
+Includes application pages, UI components, CSS, images, fonts, PDFs,
+database schemas, scripts, lockfile, licenses and hosting configuration.
+
+Setup: install Node.js >=22.13.0. Open a terminal in Web/, run
+npm run install:ci, then npm run dev. See Web/README.md for details.
+Build command: npm run build.
+
+Third-party dependencies are specified in package.json and package-lock.json
+and are installed during setup; node_modules is not bundled. Git internals,
+access credentials, runtime secrets and external service data are not included.

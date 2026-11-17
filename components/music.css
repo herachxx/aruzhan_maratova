@@ -1,0 +1,76 @@
+.music-dock {
+  position: fixed;
+  right: 40px;
+  bottom: 145px;
+  z-index: 60;
+  width: 292px;
+  color: #f1e9d7;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 12px;
+}
+.music-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 55px;
+  padding: 8px 10px 8px 14px;
+  border: 1px solid #797568;
+  border-radius: 10px;
+  background: #2e302deF;
+  box-shadow: 0 3px 12px #0002;
+}
+.music-caption { min-width: 0; margin-right: auto; }
+.music-caption strong, .music-caption span { display: block; }
+.music-caption strong { font-size: 12px; font-weight: 600; line-height: 1.5; }
+.music-caption span { color: #c4bfae; font-size: 10px; line-height: 1.4; }
+.music-dock button, .music-inline-toggle, .music-load-error button { font: inherit; cursor: pointer; }
+.music-dock .music-play { border: 0; border-radius: 6px; padding: 9px 11px; min-width: 47px; color: #282b28; background: #e9dfc9; font-weight: 600; }
+.music-dock .music-expand { border: 0; padding: 9px 2px; color: #e8dfcc; background: none; text-decoration: underline; text-underline-offset: 3px; font-size: 11px; }
+.music-dock button:focus-visible, .music-dock a:focus-visible, .music-inline-toggle:focus-visible, .music-personal a:focus-visible, .music-personal button:focus-visible { outline: 2px solid #cba66c; outline-offset: 4px; }
+.music-popover {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+  width: 340px;
+  padding: 10px;
+  border: 1px solid #68675f;
+  border-radius: 12px;
+  background: #242824;
+  box-shadow: 0 10px 30px #0004;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(6px);
+  transition: opacity 160ms ease, transform 160ms ease, visibility 160ms;
+}
+.music-popover--open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
+.music-popover-heading { display: flex; align-items: center; justify-content: space-between; margin: 0 2px 8px; font-size: 11px; }
+.music-popover-heading button { padding: 5px 2px; border: 0; color: #e8dfcc; background: none; text-decoration: underline; text-underline-offset: 3px; }
+.music-spotify-host { width: 100%; min-width: 0; }
+.music-spotify-host iframe { display: block; width: 100% !important; max-width: 100%; min-width: 0; border: 0; border-radius: 12px; }
+.music-spotify-host--compact { min-height: 152px; }
+.music-spotify-host--personal { min-height: 352px; }
+.music-spotify-host--failed { display: none; }
+.music-spotify-link { display: inline-block; margin: 9px 3px 2px; color: inherit; font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
+.music-load-note { margin: 8px 3px; font-size: 12px; color: inherit; }
+.music-load-error { padding: 12px 3px; font-size: 13px; }
+.music-load-error p { margin: 0 0 10px; }
+.music-load-error button { padding: 6px 10px; color: inherit; border: 1px solid currentColor; border-radius: 5px; background: transparent; }
+.music-inline-toggle { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 7px 10px; color: inherit; background: transparent; border: 1px solid #9b9585; border-radius: 6px; font-size: 12px; white-space: nowrap; }
+.music-inline-toggle:disabled { cursor: default; opacity: 0.6; }
+.music-personal { position: relative; width: 100%; min-width: 0; }
+.music-dock--document { right: 20px; bottom: 20px; }
+@media (max-width: 700px) {
+  .music-dock { right: auto; left: 50%; bottom: 180px; width: 268px; transform: translateX(-50%); }
+  .music-controls { min-height: 47px; padding: 6px 9px 6px 11px; }
+  .music-caption strong { font-size: 11px; }
+  .music-popover { left: 50%; right: auto; width: min(340px, calc(100vw - 20px)); transform: translate(-50%, 6px); }
+  .music-popover--open { transform: translate(-50%, 0); }
+  .music-dock--document { right: 20px; left: auto; bottom: 20px; transform: none; }
+}
+@media (max-width: 380px) {
+  .music-personal { width: calc(100% + 16px); margin-inline: -8px; }
+  .music-dock--document { right: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .music-popover { transition: none; } }
+@media print { .music-dock, .music-inline-toggle { display: none !important; } }
